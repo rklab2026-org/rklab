@@ -25,6 +25,11 @@ jobs:
         pip install -r requirements.txt
         python -m playwright install chromium --with-deps
 
-    - name: Run Playwright Automation Tests
+    - name: Start FastAPI Backend Server in Background
+      run: |
+        python -m uvicorn main:app --host 127.0.0.1 --port 8000 &
+        sleep 3  # Wait 3 seconds for server to start
+
+    - name: Run All Playwright E2E UI & API Tests
       run: |
         pytest
