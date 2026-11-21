@@ -1,0 +1,11 @@
+# Virtual Environment
+venv/
+
+# Python Cache files
+__pycache__/
+*.pyc
+
+# Pytest & Playwright Reports
+.pytest_cache/
+test-results/
+playwright-report/
