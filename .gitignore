@@ -9,3 +9,8 @@ __pycache__/
 .pytest_cache/
 test-results/
 playwright-report/
+
+# Environment Secrets
+.env
+rklab.db
+*.db
