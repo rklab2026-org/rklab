@@ -5,13 +5,15 @@ const API_BASE = "https://rklab.onrender.com";
 // ============ HELPER: Show status message on page ============
 function showStatus(message, type) {
     const el = document.getElementById("auth-status");
-    el.textContent = message;
-    el.className = "status-msg " + (type === "success" ? "status-success" : "status-error");
+    if (el) {
+        el.textContent = message;
+        el.className = "status-msg " + (type === "success" ? "status-success" : "status-error");
+    }
 }
 
-// ============ EXPLORE BUTTON (UPDATED TO PASS TEST) ============
+// ============ EXPLORE BUTTON (CRITICAL FIX FOR TEST) ============
 function showWelcomeAlert() {
-    // Exact text required by Playwright test in tests/test_home.py
+    // DO NOT CHANGE THIS TEXT. Playwright test expects exactly: Welcome to RKLab!
     alert("Welcome to RKLab!");
 }
 
@@ -95,8 +97,11 @@ async function loadItems() {
             </div>
         `).join("");
     } catch (err) {
-        document.getElementById("items-list").innerHTML = "<p>Failed to load items.</p>";
+        if (document.getElementById("items-list")) {
+            document.getElementById("items-list").innerHTML = "<p>Failed to load items.</p>";
+        }
     }
 }
 
-loadItems();
+// Load items when DOM is ready
+document.addEventListener("DOMContentLoaded", loadItems);
