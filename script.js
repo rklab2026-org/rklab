@@ -9,9 +9,10 @@ function showStatus(message, type) {
     el.className = "status-msg " + (type === "success" ? "status-success" : "status-error");
 }
 
-// ============ EXPLORE BUTTON ============
+// ============ EXPLORE BUTTON (UPDATED TO PASS TEST) ============
 function showWelcomeAlert() {
-    alert("Welcome to RKLab Frontend! 🚀");
+    // Exact text required by Playwright test in tests/test_home.py
+    alert("Welcome to RKLab!");
 }
 
 // ============ SIGN UP ============
