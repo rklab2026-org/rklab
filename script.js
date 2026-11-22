@@ -1,7 +1,6 @@
 // ============ API CONFIG ============
-// Local dev:   "http://127.0.0.1:8000"
-// Production:  "https://rklab.onrender.com"
-const API_BASE = "http://127.0.0.1:8000";
+// Use Render URL for live site!
+const API_BASE = "https://rklab.onrender.com";
 
 // ============ HELPER: Show status message on page ============
 function showStatus(message, type) {
@@ -10,7 +9,7 @@ function showStatus(message, type) {
     el.className = "status-msg " + (type === "success" ? "status-success" : "status-error");
 }
 
-// ============ EXPLORE BUTTON (Existing) ============
+// ============ EXPLORE BUTTON ============
 function showWelcomeAlert() {
     alert("Welcome to RKLab Frontend! 🚀");
 }
@@ -20,7 +19,6 @@ async function handleSignup() {
     const username = document.getElementById("signup-user").value.trim();
     const password = document.getElementById("signup-pass").value;
 
-    // Frontend basic check
     if (!username || !password) {
         showStatus("⚠️ Please fill in both Username and Password!", "error");
         return;
@@ -37,15 +35,13 @@ async function handleSignup() {
 
         if (res.ok) {
             showStatus(`✅ ${data.message} You can now Login!`, "success");
-            // Clear inputs
             document.getElementById("signup-user").value = "";
             document.getElementById("signup-pass").value = "";
         } else {
             showStatus(`❌ ${data.detail || "Signup failed!"}`, "error");
         }
-
     } catch (err) {
-        showStatus("🔴 Server not reachable! Is the backend running?", "error");
+        showStatus("🔴 Backend Server Error! Please check Render deployment.", "error");
     }
 }
 
@@ -54,7 +50,6 @@ async function handleLogin() {
     const username = document.getElementById("login-user").value.trim();
     const password = document.getElementById("login-pass").value;
 
-    // Frontend basic check
     if (!username || !password) {
         showStatus("⚠️ Please fill in both Username and Password!", "error");
         return;
@@ -71,18 +66,16 @@ async function handleLogin() {
 
         if (res.ok) {
             showStatus(`🎉 Welcome, ${data.username}! Login successful!`, "success");
-            // Clear password only
             document.getElementById("login-pass").value = "";
         } else {
             showStatus(`❌ ${data.detail || "Login failed!"}`, "error");
         }
-
     } catch (err) {
-        showStatus("🔴 Server not reachable! Is the backend running?", "error");
+        showStatus("🔴 Backend Server Error! Please check Render deployment.", "error");
     }
 }
 
-// ============ LOAD ITEMS (for future use) ============
+// ============ LOAD ITEMS ============
 async function loadItems() {
     try {
         const res = await fetch(`${API_BASE}/api/items`);
@@ -105,5 +98,4 @@ async function loadItems() {
     }
 }
 
-// Auto-load items on page load
 loadItems();
