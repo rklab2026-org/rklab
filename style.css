@@ -1,117 +1,230 @@
-/* ==========================================
-   RKLab - Main Stylesheet
-   Theme: Enterprise Dark Tech
-   ========================================== */
-
-/* Global Reset */
+/* ============ RESET & BASE ============ */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-/* Body Styling */
 body {
-    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-    background-color: #0f172a;
-    /* Slate Dark Background */
-    color: #f8fafc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-}
-
-/* Main Card Wrapper */
-.container {
-    background-color: #1e293b;
-    /* Card Dark Background */
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    max-width: 600px;
-    width: 100%;
-    border: 1px solid #334155;
-}
-
-/* Headings */
-h1 {
-    color: #38bdf8;
-    /* Neon Blue */
-    font-size: 2.2rem;
-    margin-bottom: 8px;
-    text-align: center;
-}
-
-h2 {
-    color: #818cf8;
-    /* Indigo Accent */
-    font-size: 1.2rem;
-    margin-top: 24px;
-    margin-bottom: 12px;
-    border-bottom: 1px solid #334155;
-    padding-bottom: 6px;
-}
-
-/* Paragraphs */
-p {
-    color: #cbd5e1;
-    font-size: 1rem;
+    background: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    margin-bottom: 12px;
 }
 
-/* Lists */
-ul {
-    list-style-type: none;
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============ HEADER ============ */
+header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 40px 0;
+    text-align: center;
+    border-bottom: 2px solid #00e5ff;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #00e5ff;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #aaa;
+}
+
+/* ============ HERO ============ */
+.hero {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.hero h2 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #888;
     margin-bottom: 20px;
 }
 
-li {
-    background-color: #334155;
-    margin: 8px 0;
-    padding: 12px 16px;
-    border-radius: 8px;
-    color: #f1f5f9;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    transition: transform 0.2s ease;
-}
-
-li:hover {
-    transform: translateX(5px);
-    background-color: #475569;
-}
-
-li::before {
-    content: "🚀";
-    margin-right: 12px;
-}
-
-/* Interactive Elements (Helpful for Automation Testing) */
-button {
-    background-color: #0284c7;
-    color: #ffffff;
+/* ============ BUTTONS ============ */
+.btn {
+    padding: 12px 28px;
     border: none;
-    padding: 14px 28px;
+    border-radius: 8px;
     font-size: 1rem;
     font-weight: 600;
-    border-radius: 8px;
     cursor: pointer;
-    width: 100%;
-    margin-top: 15px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-button:hover {
-    background-color: #0369a1;
+.btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
 }
 
-button:active {
-    transform: translateY(0);
+.btn-primary {
+    background: #00e5ff;
+    color: #121212;
+}
+
+.btn-secondary {
+    background: #7c4dff;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    box-shadow: 0 4px 15px rgba(124, 77, 255, 0.4);
+}
+
+/* ============ CARDS / SECTIONS ============ */
+.card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    color: #00e5ff;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ============ AUTH SECTION ============ */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.auth-box {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 229, 255, 0.15);
+    border-radius: 12px;
+}
+
+.auth-box h4 {
+    color: #00e5ff;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.auth-box input {
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #2a2a2a;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-box input:focus {
+    outline: none;
+    border-color: #00e5ff;
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.3);
+}
+
+.auth-box input::placeholder {
+    color: #666;
+}
+
+.divider {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ============ STATUS MESSAGE ============ */
+.status-msg {
+    margin-top: 20px;
+    font-weight: 600;
+    text-align: center;
+    min-height: 28px;
+    font-size: 1.05rem;
+}
+
+.status-success {
+    color: #2ecc71;
+}
+
+.status-error {
+    color: #e74c3c;
+}
+
+/* ============ ITEMS LIST ============ */
+#items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    border-left: 3px solid #00e5ff;
+}
+
+.item-row .item-name {
+    font-weight: 600;
+}
+
+.item-row .item-status {
+    font-size: 0.85rem;
+    color: #2ecc71;
+    background: rgba(46, 204, 113, 0.1);
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+/* ============ FOOTER ============ */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: #666;
+    border-top: 1px solid #333;
+    margin-top: 40px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 600px) {
+    .auth-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .auth-box {
+        max-width: 100%;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
 }

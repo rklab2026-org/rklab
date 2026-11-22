@@ -4,43 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RKLab - Home</title>
-    <!-- CSS Link -->
+    <title>RKLab Enterprise Lab</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>Welcome to RKLab!</h1>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <h1>🌟 RKLab Enterprise Lab</h1>
+            <p>Your Ultimate QA Automation Practice Arena</p>
+        </div>
+    </header>
 
-        <h2>Personal Enterprise Development Lab</h2>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h2>Welcome to RKLab</h2>
+            <p>Experiment. Automate. Scale.</p>
+            <button class="btn btn-primary" onclick="showWelcomeAlert()">Explore Features</button>
+        </div>
+    </section>
 
-        <p>
-            We Build, Test, Deploy and Learn Together.
-        </p>
+    <!-- MAIN CONTENT -->
+    <main class="container">
 
-        <h2>What We Do</h2>
+        <!-- AUTH SECTION: SIGN UP + LOGIN -->
+        <section id="auth-section" class="card">
+            <h3 class="section-title">🔑 User Authentication</h3>
+            <div class="auth-container">
 
-        <ul>
-            <li>Software Development</li>
-            <li>Application Testing</li>
-            <li>Database Validation</li>
-            <li>DevOps and Deployment</li>
-        </ul>
+                <!-- SIGN UP BOX -->
+                <div class="auth-box">
+                    <h4>📝 Create Account</h4>
+                    <input type="text" id="signup-user" placeholder="Choose Username" autocomplete="off">
+                    <input type="password" id="signup-pass" placeholder="Create Password">
+                    <button class="btn btn-primary" onclick="handleSignup()">Sign Up</button>
+                </div>
 
-        <h2>Our Mission</h2>
+                <div class="divider"></div>
 
-        <p>
-            Learning real-world enterprise technologies
-            through practical projects and collaboration.
-        </p>
+                <!-- LOGIN BOX -->
+                <div class="auth-box">
+                    <h4>🔐 Member Login</h4>
+                    <input type="text" id="login-user" placeholder="Username" autocomplete="off">
+                    <input type="password" id="login-pass" placeholder="Password">
+                    <button class="btn btn-secondary" onclick="handleLogin()">Login</button>
+                </div>
 
-        <button id="explore-btn">Explore RKLab</button>
-    </div>
+            </div>
+            <!-- STATUS MESSAGE -->
+            <p id="auth-status" class="status-msg"></p>
+        </section>
 
-    <!-- JS Link added here -->
+        <!-- ITEMS SECTION -->
+        <section id="items-section" class="card">
+            <h3 class="section-title">📦 Lab Inventory</h3>
+            <div id="items-list">
+                <p>Loading items from database...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 RKLab Enterprise | Designed for QA Excellence</p>
+    </footer>
+
+    <!-- SCRIPTS -->
     <script src="script.js"></script>
+
 </body>
 
 </html>
