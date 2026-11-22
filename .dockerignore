@@ -1,0 +1,11 @@
+venv/
+.venv/
+.env
+rklab.db
+*.db
+__pycache__/
+*.pyc
+.git/
+.github/
+test-results/
+playwright-report/

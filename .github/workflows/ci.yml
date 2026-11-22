@@ -36,3 +36,7 @@ jobs:
     - name: Run All Playwright E2E UI & API Tests
       run: |
         python -m pytest tests/
+
+    - name: Build Docker Image (Cloud Verification)
+      run: |
+        docker build -t rklab-backend .
